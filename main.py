@@ -52,15 +52,15 @@ def main():
     logger.info('Generating black cards final json structure')
     generate_black_cards_json(black_cards_text, white_black_dict)
     white_black_dict['white'] = white_cards_text
-    white_black_dict['packs'] = {
-        'base': {
+    white_black_dict['packs'] = [
+        {
             "name": "The Base Set",
             "description": "Sweet dirty vanilla",
             "official": False,
             "white": [i for i in range(0, white_cards_count)],
             "black": [i for i in range(0, black_cards_count)],
         }
-    }
+    ]
 
     logger.info('Writing data into output.json')
     write_file('output.json', white_black_dict)

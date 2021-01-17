@@ -827,8 +827,8 @@
             "pick": 1
         }
     ],
-    "packs": {
-        "base": {
+    "packs": [
+        {
             "name": "The Base Set",
             "description": "Sweet dirty vanilla",
             "official": false,
@@ -1388,5 +1388,5 @@
                 90
             ]
         }
-    }
+    ]
 }
