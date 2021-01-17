@@ -43,9 +43,9 @@ def write_file(filename, json_data):
 
 def main():
     logger.info('Reading white and black cards files')
-    white_cards_text = read_file('white.txt')
+    white_cards_text = read_file('./static/white.txt')
     white_cards_count = len(white_cards_text)
-    black_cards_text = read_file('black.txt')
+    black_cards_text = read_file('./static/black.txt')
     black_cards_count = len(black_cards_text)
     white_black_dict = {'white': [], 'black': []}
 
@@ -63,7 +63,7 @@ def main():
     ]
 
     logger.info('Writing data into output.json')
-    write_file('output.json', white_black_dict)
+    write_file('./static/output.json', white_black_dict)
 
     return 0
 
