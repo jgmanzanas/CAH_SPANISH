@@ -44,12 +44,23 @@ def write_file(filename, json_data):
 def main():
     logger.info('Reading white and black cards files')
     white_cards_text = read_file('white.txt')
+    white_cards_count = len(white_cards_text)
     black_cards_text = read_file('black.txt')
+    black_cards_count = len(black_cards_text)
     white_black_dict = {'white': [], 'black': []}
 
     logger.info('Generating black cards final json structure')
     generate_black_cards_json(black_cards_text, white_black_dict)
     white_black_dict['white'] = white_cards_text
+    white_black_dict['packs'] = {
+        'base': {
+            "name": "The Base Set",
+            "description": "Sweet dirty vanilla",
+            "official": False,
+            "white": [i for i in range(0, white_cards_count)],
+            "black": [i for i in range(0, black_cards_count)],
+        }
+    }
 
     logger.info('Writing data into output.json')
     write_file('output.json', white_black_dict)
